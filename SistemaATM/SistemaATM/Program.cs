@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using SistemaATM.Model.MockDataBase;
+
+Console.WriteLine("================ SISTEMA ATM ================");
+AccountList.GetAccounts().ForEach(Console.WriteLine);
