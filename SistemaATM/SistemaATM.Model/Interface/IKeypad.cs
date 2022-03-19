@@ -1,4 +1,4 @@
-﻿namespace SistemaATM.Model.Interface
+﻿namespace SistemaATM
 {
     public interface IKeypad
     {

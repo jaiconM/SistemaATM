@@ -1,7 +1,9 @@
-﻿namespace SistemaATM.Model.Interface
+﻿namespace SistemaATM
 {
     public interface IScreen
     {
+        void DisplayCurrencyAmount(decimal amount);
         void DisplayMessage(string message);
+        void DisplayMessageLine(string message);
     }
 }

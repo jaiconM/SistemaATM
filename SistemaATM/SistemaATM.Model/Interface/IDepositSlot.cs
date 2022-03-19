@@ -1,7 +1,7 @@
-﻿namespace SistemaATM.Model.Interface
+﻿namespace SistemaATM
 {
     public interface IDepositSlot
     {
-        bool IsEnvelopeReceived();
+        bool IsDepositEnvelopeReceived();
     }
 }
