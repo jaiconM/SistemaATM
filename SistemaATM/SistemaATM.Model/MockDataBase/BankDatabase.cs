@@ -15,8 +15,6 @@ namespace SistemaATM.Model.MockDataBase
             };
         }
 
-        private Account GetAccount(int accountNumber) => _accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
-
         public bool AuthenticateUser(int userAccountNumber, int userPIN)
         {
             var userAccount = GetAccount(userAccountNumber);
@@ -42,5 +40,6 @@ namespace SistemaATM.Model.MockDataBase
             var userAccount = GetAccount(userAccountNumber);
             userAccount.Debit(amount);
         }
+        private Account GetAccount(int accountNumber) => _accounts.Where(a => a.AccountNumber == accountNumber).FirstOrDefault();
     }
 }
