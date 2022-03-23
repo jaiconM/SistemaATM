@@ -4,11 +4,16 @@ namespace SistemaATM.Model.Entidades
 {
     public abstract class Transaction
     {
-        protected IScreen _screen;
-        protected IKeypad _keypad;
-        protected IDepositSlot _depositSlot;
-        protected int _currentAccountNumber;
-        protected BankDatabase _bankDatabase;
+        protected IScreen Screen { get; private set; }
+        protected int CurrentAccountNumber { get; private set; }
+        protected BankDatabase BankDatabase { get; private set; }
+
+        protected Transaction(IScreen screen, int currentAccountNumber, BankDatabase bankDatabase)
+        {
+            Screen = screen;
+            CurrentAccountNumber = currentAccountNumber;
+            BankDatabase = bankDatabase;
+        }
 
         public abstract void Execute();
     }

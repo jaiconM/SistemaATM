@@ -39,8 +39,9 @@ namespace SistemaATM.Model.Entidades
                 {
                     _screen.DisplayMessageLine("\nBem-vindo!");
                     AuthenticateUser();
-                }
 
+                }
+                _screen.ClearDisplay();
                 PerformTransactions();
                 _userAuthenticated = false;
                 _currentAccountNumber = 0;
@@ -78,15 +79,18 @@ namespace SistemaATM.Model.Entidades
                     case MenuOption.BALANCE_INQUIRY:
                     case MenuOption.WITHDRAWAL:
                     case MenuOption.DEPOSIT:
+                        _screen.ClearDisplay();
                         currentTransaction = CreateTransaction(mainMenuSelection);
                         currentTransaction.Execute();
                         break;
                     case MenuOption.EXIT_ATM:
-                        _screen.DisplayMessageLine("\nSaíndo do sistema...");
+                        _screen.ClearDisplay();
+                        _screen.DisplayMessageLine("\nSaiu do sistema.");
                         userExited = true;
                         break;
                     default:
-                        _screen.DisplayMessageLine("\nVocê não digitou uma opção válida. Tente novamente.");
+                        _screen.ClearDisplay();
+                        _screen.DisplayMessageLine("Você não digitou uma opção válida. Tente novamente.");
                         break;
                 }
             }
@@ -106,7 +110,8 @@ namespace SistemaATM.Model.Entidades
             }
             catch
             {
-                _screen.DisplayMessageLine("\nVocê não digitou uma opção válida. Tente novamente.");
+                _screen.ClearDisplay();
+                _screen.DisplayMessageLine("Você não digitou uma opção válida. Tente novamente.");
                 return DisplayMainMenu();
             }
         }
