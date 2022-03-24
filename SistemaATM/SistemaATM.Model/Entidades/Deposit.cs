@@ -34,12 +34,17 @@ namespace SistemaATM.Model.Entidades
             try
             {
                 Screen.DisplayMessage("Digite o valor que está depositando: ");
-                return _keypad.GetInput();
+                var amount = _keypad.GetInput();
+                if (amount > 0)
+                {
+                    return amount;
+                }
+                throw new Exception();
             }
             catch
             {
                 Screen.ClearDisplay();
-                Screen.DisplayMessageLine("Você não digitou uma opção de valor válida.\nValores numéricos sem centavos são válidos.\nTente novamente.\n");
+                Screen.DisplayMessageLine("Você não digitou uma opção de valor válida.\nValores numéricos positivos sem centavos são válidos.\nTente novamente.\n");
                 return PromptForDepositAmount();
             }
         }
